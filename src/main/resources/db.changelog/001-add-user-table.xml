@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="001-whtdo" author="whtdo">
+        <createTable tableName="user">
+            <column name="user_id" type="uuid">
+                <constraints primaryKey="true"
+                             primaryKeyName="user_pk"/>
+            </column>
+            <column name="passport_number" type="varchar(10)"/>
+            <column name="first_name" type="varchar(255)"/>
+            <column name="surname" type="varchar(250)"/>
+            <column name="patronymic" type="varchar(250)"/>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
