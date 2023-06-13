@@ -26,6 +26,4 @@ public class User {
     private String surname;
     @Column(name = "patronymic")
     private String patronymic;
-
-
 }
