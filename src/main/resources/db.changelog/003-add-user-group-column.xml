@@ -4,6 +4,9 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
-    <include file="001-add-user-table.xml" relativeToChangelogFile="true"/>
-    <include file="002-add-user-group-table.xml" relativeToChangelogFile="true"/>
+    <changeSet id="003-whtdo" author="whtdo">
+        <addColumn tableName="user">
+            <column name="user_group_id" type="UUID"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

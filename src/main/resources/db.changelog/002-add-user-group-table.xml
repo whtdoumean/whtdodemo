@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="002-whtdo" author="whtdo">
+        <createTable tableName="user_group">
+            <column name="user_group_id" type="uuid">
+                <constraints primaryKey="true"
+                             primaryKeyName="user_group_pk"/>
+            </column>
+            <column name="user_group_name" type="varchar(100)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
