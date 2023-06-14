@@ -11,7 +11,8 @@ import java.util.UUID;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
-    List<User> findByPassportNumber(String passportNumber);
-    List<UserProjection> findByPassportNumberIs(String passportNumber);
+    List<UserProjection> findByPassportNumber(String passportNumber);
     List<UserProjection> findByFirstNameLike(String firstName);
+    List<UserProjection> findByFirstNameAndPassportNumber(String firstName, String passportNumber);
 }
+

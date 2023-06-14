@@ -21,26 +21,27 @@ public class UserController {
         return userRepository.findById(id).orElseThrow();
     }
 
-    @GetMapping(value = "get_user_by_name_letter")
+    @GetMapping(value = "get_user_by_first_name_letter")
     public List<UserProjection> getUserByNameLetter(@RequestParam(name = "letter", required = true) String letter) {
         return userRepository.findByFirstNameLike(letter + "%"); // начинается с буквы
     }
 
-    @GetMapping(value = "get_user_by_passport")
-    public List<User> getUserByPassport(@RequestParam(name = "passport", required = true) String passport) {
-        return userRepository.findByPassportNumber(passport);
+    @GetMapping(value = "get_user_by_passport_number")
+    public List<UserProjection> getUserByPassport(@RequestParam(name = "passport_number", required = true) String passportNumber) {
+        return userRepository.findByPassportNumber(passportNumber);
     }
 
-    @GetMapping(value = "get_projection_by_passport")
-    public List<UserProjection> getUserByPassportIs(@RequestParam(name = "passport", required = true) String passport) {
-        return userRepository.findByPassportNumberIs(passport);
+    @GetMapping(value = "get_user_by_first_name_and_passport_number")
+    public List<UserProjection> getUserByFirstNameAndPassportNumber(@RequestParam(name = "first_name") String firstName,
+                                                                    @RequestParam(name = "passport_number") String passportNumber) {
+        return userRepository.findByFirstNameAndPassportNumber(firstName, passportNumber);
     }
 
     @GetMapping(value = "add_user") // ловим url
-    public User addUser(@RequestParam(name = "passport", required = false) String passportNumber,
-                        @RequestParam(name = "name", required = false) String name) {
+    public User addUser(@RequestParam(name = "passport_number", required = false) String passportNumber,
+                        @RequestParam(name = "first_name", required = false) String firstName) {
         User user = new User();
-        user.setFirstName(name);
+        user.setFirstName(firstName);
         user.setPassportNumber(passportNumber);
         userRepository.save(user); // сохраняем в бд
         return user;
