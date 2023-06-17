@@ -14,7 +14,6 @@
             <column name="first_name" type="varchar(255)"/>
             <column name="surname" type="varchar(250)"/>
             <column name="patronymic" type="varchar(250)"/>
-            <column name="user_group_id" type="int"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

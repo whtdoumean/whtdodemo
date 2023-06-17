@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -20,5 +22,7 @@ public class UserGroup {
     private UUID id;
     @Column
     private String user_group_name;
-    // ???
+    @JoinColumn(name = "user_group_id")
+    @OneToMany
+    private List<User> users = new ArrayList<>();
 }
