@@ -26,4 +26,7 @@ public class User {
     private String surname;
     @Column(name = "patronymic")
     private String patronymic;
+    @JoinColumn(name = "user_group_id")
+    @ManyToOne
+    private UserGroup userGroup;
 }

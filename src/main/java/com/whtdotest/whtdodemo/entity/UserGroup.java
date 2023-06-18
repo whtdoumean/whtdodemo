@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "user_group")
@@ -19,10 +17,23 @@ public class UserGroup {
     @EqualsAndHashCode.Include
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @GeneratedValue(generator = "uuid2")
-    private UUID id;
-    @Column
-    private String user_group_name;
-    @JoinColumn(name = "user_group_id")
-    @OneToMany
-    private List<User> users = new ArrayList<>();
+    UUID id;
+    @Column(name = "user_group_name")
+    String userGroupName;
+
+    @OneToMany(mappedBy = "userGroup", cascade = CascadeType.ALL)
+    List<User> users = new ArrayList<>();
+
+    public void addUser(User user) {
+
+
+        if (user.getId() == null || !users.contains(user)) {
+            user.setUserGroup(this);
+            users.add(user);
+        }
+    }
+
+    public List<User> getUsers() {
+        return Collections.unmodifiableList(users);
+    }
 }

@@ -6,7 +6,7 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <changeSet id="003-whtdo" author="whtdo">
         <addColumn tableName="user">
-            <column name="user_group_id" type="UUID"/>
+            <column name="user_group_id" type="uuid"/>
         </addColumn>
     </changeSet>
 </databaseChangeLog>
