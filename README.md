@@ -1,2 +1,2 @@
 # whtdodemo
-Demonstration of Spring project
+Demonstration of Spring Data JPA project with lombok and hibarnate
